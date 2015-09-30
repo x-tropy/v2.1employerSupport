@@ -1,0 +1,606 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<style>
+body {
+  font-family: Georgia, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", "Heiti SC", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #585a62;
+  padding: 50px 50px 100px 50px;
+}
+em {
+  font-style: normal;
+}
+a {
+  color: #4285f4;
+  text-decoration: none;
+}
+a:hover {
+  border-bottom: 1px solid #4285f4;
+}
+a.absent {
+  color: #cc0000;
+}
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+}
+h1,
+h3 {
+  width: 796px;
+  margin: 0 auto;
+  color: #34363f;
+}
+h5,
+h2,
+h4 {
+  color: #34363f;
+}
+h5,
+h2,
+h4,
+ul,
+hr,
+blockquote,
+ul,
+ol,
+dl,
+li,
+table,
+pre {
+  width: 700px;
+  margin: 0 auto;
+}
+p {
+  width: 700px;
+  margin: 0 auto;
+}
+h1 tt {
+  font-size: inherit;
+}
+h2 tt {
+  font-size: inherit;
+}
+h3 tt {
+  font-size: inherit;
+}
+h4 tt {
+  font-size: inherit;
+}
+h1 {
+  font-size: 22px;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 8px;
+}
+h2 {
+  font-size: 28px;
+  font-weight: normal;
+  text-align: center;
+  border-bottom: 1px solid #e5e6e9;
+  margin-top: 64px;
+  margin-bottom: 24px;
+}
+h3 {
+  font-size: 23px;
+  margin-top: 40px;
+  margin-bottom: 16px;
+}
+h4 {
+  font-size: 18px;
+  padding-top: 16px;
+}
+h5 {
+  font-size: 16px;
+  padding: 0;
+  line-height: 2;
+}
+p {
+  font-size: 16px;
+  line-height: 2;
+  text-align: justify;
+  text-justify: ideographic;
+  margin-bottom: 16px;
+}
+li > p {
+  margin-bottom: 0;
+}
+hr {
+  background: #e5e6e9;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+  margin-top: 32px;
+  margin-bottom: 32px;
+}
+h1 p,
+h2 p,
+h3 p,
+h4 p,
+h5 p,
+h6 p {
+  margin-top: 0;
+}
+li p.first {
+  display: inline-block;
+}
+li {
+  margin: 0;
+}
+ul,
+ol {
+  padding-left: 30px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+dl {
+  padding: 0;
+}
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+dl dt:first-child {
+  padding: 0;
+}
+dl dt > :first-child {
+  margin-top: 0;
+}
+dl dt > :last-child {
+  margin-bottom: 0;
+}
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+dl dd > :first-child {
+  margin-top: 0;
+}
+dl dd > :last-child {
+  margin-bottom: 0;
+}
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777;
+}
+blockquote > :first-child {
+  margin-top: 0;
+}
+blockquote > :last-child {
+  margin-bottom: 0;
+}
+table {
+  padding: 0;
+  border-collapse: collapse;
+}
+table tr {
+  border-top: 1px solid #cccccc;
+  background-color: white;
+  margin: 0;
+  padding: 0;
+}
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+table tr th {
+  font-weight: bold;
+  border: 1px solid #cccccc;
+  margin: 0;
+  padding: 6px 13px;
+}
+table tr td {
+  border: 1px solid #cccccc;
+  margin: 0;
+  padding: 6px 13px;
+}
+table tr th:first-child,
+table tr td:first-child {
+  margin-top: 0;
+}
+table tr th:last-child,
+table tr td:last-child {
+  margin-bottom: 0;
+}
+img {
+  padding: 24px 0;
+  /*max-width: 100%;*/
+  /*position: relative;*/
+  /*right: 50%;*/
+}
+span.frame {
+  display: block;
+  overflow: hidden;
+}
+span.frame > span {
+  border: 1px solid #dddddd;
+  display: block;
+  float: left;
+  overflow: hidden;
+  margin: 13px 0 0;
+  padding: 7px;
+  width: auto;
+}
+span.frame span img {
+  display: block;
+  float: left;
+}
+span.frame span span {
+  clear: both;
+  color: #333333;
+  display: block;
+  padding: 5px 0 0;
+}
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both;
+}
+span.align-center > span {
+  display: block;
+  overflow: hidden;
+  margin: 13px auto 0;
+  text-align: center;
+}
+span.align-center span img {
+  margin: 0 auto;
+  text-align: center;
+}
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both;
+}
+span.align-right > span {
+  display: block;
+  overflow: hidden;
+  margin: 13px 0 0;
+  text-align: right;
+}
+span.align-right span img {
+  margin: 0;
+  text-align: right;
+}
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left;
+}
+span.float-left span {
+  margin: 13px 0 0;
+}
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right;
+}
+span.float-right > span {
+  display: block;
+  overflow: hidden;
+  margin: 13px auto 0;
+  text-align: right;
+}
+code,
+tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+code {
+  font-family: "Courier New", "Courier";
+  font-weight: bold;
+}
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+pre code,
+pre tt {
+  background-color: transparent;
+  border: none;
+}
+sup {
+  font-size: 0.83em;
+  vertical-align: super;
+  line-height: 0;
+}
+* {
+  -webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+  body {
+    position: relative;
+    margin: 0 auto;
+  }
+}
+@media print {
+  table,
+  pre {
+    page-break-inside: avoid;
+  }
+  pre {
+    word-wrap: break-word;
+  }
+}
+
+</style>
+<title>兼客首页</title>
+
+</head>
+<body>
+<h1>兼客首页</h1>
+
+<h2>概览</h2>
+
+<p><img src="img/home-c.png" alt="image" /></p>
+
+<p>兼客端首页分为「抢单」「兼职快讯」两个 tab 页。布局及功能与雇主端类似。标题栏左侧可点开「个人中心」，右侧分别为「搜索」「钱袋子」。页面右下方悬浮圆按钮为「消息铃铛」。</p>
+
+<hr />
+
+<p>注：抢单兼职当前仅在上海（待定）开通。如 v2.0 App 定位发现用户所处城市未开通抢单兼职，则移除「抢单」「兼职快讯」tab，直接显示「兼职快讯」内容。</p>
+
+<h2>抢单兼职</h2>
+
+<p><img src="img/home-c-fast.png" alt="image" /></p>
+
+<p>「抢单」tab 页中，以卡片形式呈现抢单兼职。卡片包含以下信息：</p>
+
+<ul>
+<li>标题</li>
+<li>时薪</li>
+<li>工作日期及时间段：例如，9/9 至 9/10 8:00~19:00</li>
+<li>工作地点：详细地址，例如，红坊海峡创意产业园（卡片空间紧凑，不显示区域）</li>
+<li>备注</li>
+<li>兼客头像</li>
+<li>兼客计数</li>
+</ul>
+
+
+<h3>标题</h3>
+
+<p>小屏幕中标题过长（最多 15 中文字符）则末尾截断，以「…」代替。</p>
+
+<h3>兼客头像</h3>
+
+<p>最新抢单兼客头像在最左侧显示，溢出部分不予以显示。未上传头像的兼客取姓名字符串中一个文字配浅灰色背景。</p>
+
+<h3>兼客计数</h3>
+
+<p>头像列表右侧为已报名兼客数。斜杠后为岗位所需总人数。</p>
+
+<blockquote><p>格式：3 / 12</p></blockquote>
+
+<h3>已抢完</h3>
+
+<p>名额报满后，抢单卡片不立即消失且在页面中的次序不发生改变。次日零点，方才消失。</p>
+
+<h2>抢单资格</h2>
+
+<p>抢单兼职要求兼客必须认证身份证。兼客点击「立即抢单」后检测用户状态。根据不同用户状态，系统给出不同反馈。</p>
+
+<h3><span id="double-check">双重认证</span></h3>
+
+<p>由于第二重认证耗时较久，支持第一重认证成功（耗时约几分钟）即可抢单。</p>
+
+<ul>
+<li>第一重，所输入身份证号与姓名是否互相匹配。接入政府数据库判断，由<a href="http://www.id98.cn/doc/idcard">第三方提供服务</a>。</li>
+<li>第二重，所传照片中身份证号、姓名与所输入的是否一致；手持身份证正面照中，人脸与证件照是否匹配。由客服完成。</li>
+</ul>
+
+
+<hr />
+
+<p>注：身份证认证服务：http://www.id98.cn/doc/idcard；账号：359733246@qq.com；密码：chen112233</p>
+
+<h4>认证状态</h4>
+
+<ul>
+<li>游客：「随便看看」模式下支持不登录进入 App。点击后弹框提示注册或登录。</li>
+</ul>
+
+
+<pre><code>更多功能，请登录后继续使用。
+新用户 | 登录
+</code></pre>
+
+<ul>
+<li>未认证：弹框提示重新认证</li>
+<li>认证失败：弹框提示重新认证</li>
+</ul>
+
+
+<p>点击「立即认证」跳转至「实名认证」页。</p>
+
+<pre><code>抢单资格不足，您要花几分钟时间认证身份证。
+取消 | 立即认证
+</code></pre>
+
+<ul>
+<li>认证中（首次抢单）：提示支付保证金</li>
+<li>认证成功：提示支付保证金</li>
+</ul>
+
+
+<pre><code>抢单保证金
+请支付 30 元保证金完成抢单，完工后平台将立即返回全额。
+取消 | 立即支付
+</code></pre>
+
+<ul>
+<li>认证中（非首次抢单）：提示认证未完成</li>
+</ul>
+
+
+<pre><code>认证未完成
+预计审核时长 6 小时左右，请您稍候重试！（首次抢单机会用光了，完成认证可继续抢单）
+</code></pre>
+
+<hr />
+
+<p>注：首次抢单时，若抢单成功后发生第二重认证失败，不取消该兼客资格。但该兼客在下次抢单时必须成功完成双重认证。</p>
+
+<h3>保证金</h3>
+
+<p>平台规定，每抢一单必须缴纳保证金 30 元。身份证第一重认证成功赠送 30 元红包，仅可被用于缴纳保证金。仅当做满 5 次任意类型兼职后保证金红包可被取出。雇主端操作或逾期平台自动确认「完工」后，立即返还保证金至兼客余额中，否则被判定为放鸽子，保证金不能被返还（扣留在平台中）。</p>
+
+<h3>日程冲突</h3>
+
+<ul>
+<li>抢单兼职之间严格控制工作时间不可重叠。点击抢单或报名弹框提示「这个时间段已被预订哦！专心为老板卖力吧~」</li>
+<li>允许普通兼职与抢单兼职，或普通兼职之间工作时间重叠。</li>
+<li>同一天最多可报 5 份普通兼职或抢单兼职。点击抢单或报名弹框提示「一天最多参加 5 次兼职哦！别把自己累坏了~」</li>
+</ul>
+
+
+<hr />
+
+<p>注：验证先后次序为「双重认证 → 保证金 → 日程冲突」。</p>
+
+<h2>普通兼职</h2>
+
+<p><img src="img/home-c-normal.png" alt="image" /></p>
+
+<p>「兼职快讯」 tab 页中呈现普通兼职信息列表。列表项包含以下信息：</p>
+
+<ul>
+<li>标题：溢出则截断，以「…」代替</li>
+<li>薪资</li>
+<li>工作日期及时间段</li>
+<li>工作地点：溢出则截断，以「…」代替（列表空间紧凑，不显示区域）</li>
+<li>岗位图标</li>
+<li>距离：仅选中「离我最近」筛选项时显示（格式：310m 或 1.3km）</li>
+</ul>
+
+
+<h3>筛选项</h3>
+
+<p>筛选功能基本沿用旧版本功能设定，较大变化体现在交互及 UI 上，部分筛选项支持多选。</p>
+
+<h4>位置</h4>
+
+<p>其中「离我最近」及「全福州」为单选。其他区域为多选。不同城市中，以具体城市名替代福州。单选及多选状态不同时出现。</p>
+
+<p>点击筛选图标展开面板。面板展开后，点击面板外其他区域，或筛选图标这块热区关闭面板同时刷新岗位数据。面板内选项较多时出现滚动条。</p>
+
+<ul>
+<li>马尾区</li>
+<li>晋安区</li>
+<li>仓山区</li>
+<li>台江区</li>
+<li>鼓楼区</li>
+<li>离我最近</li>
+<li>全福州</li>
+</ul>
+
+
+<h4>分类</h4>
+
+<p>岗位分类支持多选。点击「不限」或「其他」取消所有选择。</p>
+
+<ul>
+<li>传单</li>
+<li>促销</li>
+<li>礼仪</li>
+<li>小时工</li>
+<li>…</li>
+<li>其他</li>
+<li>不限</li>
+</ul>
+
+
+<h4>时间</h4>
+
+<p>单选。沿用旧版本功能设定。</p>
+
+<ul>
+<li>长期兼职</li>
+<li>短期兼职</li>
+<li>周末兼职</li>
+<li>明天兼职</li>
+<li>不限</li>
+</ul>
+
+
+<h4>高薪</h4>
+
+<p>单选。选择某单位后，兼职列表仅显示以该单位标明薪资的岗位，且按薪资从高到低排序。</p>
+
+<ul>
+<li>标题：选择排序单位</li>
+<li>元/月</li>
+<li>元/次</li>
+<li>元/时</li>
+<li>元/天</li>
+<li>不限</li>
+</ul>
+
+
+<hr />
+
+<p>注：退出应用后再次进入首页清空「兼职快讯」已选中筛选项。</p>
+
+<h3>报名资格</h3>
+
+<p>报名普通兼职仅要求兼客必须填写姓名，不作认证。</p>
+
+<p>姓名字段格式要求输入中文或英文，不允许数字或符号出现。最长 15 个字符。</p>
+
+<p><img src="img/name-input.png" alt="image" /></p>
+
+<h3>选择工作日期</h3>
+
+<p>对于一天以上且薪资单位为「元/天」「元/时」的普通兼职，报名时弹框要求兼客选择若干上岗日期。</p>
+
+<p>其他情况下，则弹框再次确认是否报名。</p>
+
+<h2>搜索</h2>
+
+<p>沿用旧版本功能设定，搜索建议项分为「专题」「分类」两栏。</p>
+
+<p><img src="img/search.png" alt="image" /></p>
+
+<p>搜索范围包括<strong>抢单</strong>及普通兼职。列表项中包含「标题」「抢单标识」「工作地点」「工作时间」「薪资」「暂无名额印章」「专题标识」「置顶标识」等。</p>
+
+<p><img src="img/search-result.png" alt="image" /></p>
+</body>
+</html>

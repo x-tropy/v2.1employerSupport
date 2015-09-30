@@ -1,0 +1,508 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<style>
+body {
+  font-family: Georgia, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", "Heiti SC", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #585a62;
+  padding: 50px 50px 100px 50px;
+}
+em {
+  font-style: normal;
+}
+a {
+  color: #4285f4;
+  text-decoration: none;
+}
+a:hover {
+  border-bottom: 1px solid #4285f4;
+}
+a.absent {
+  color: #cc0000;
+}
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+}
+h1,
+h3 {
+  width: 796px;
+  margin: 0 auto;
+  color: #34363f;
+}
+h5,
+h2,
+h4 {
+  color: #34363f;
+}
+h5,
+h2,
+h4,
+ul,
+hr,
+blockquote,
+ul,
+ol,
+dl,
+li,
+table,
+pre {
+  width: 700px;
+  margin: 0 auto;
+}
+p {
+  width: 700px;
+  margin: 0 auto;
+}
+h1 tt {
+  font-size: inherit;
+}
+h2 tt {
+  font-size: inherit;
+}
+h3 tt {
+  font-size: inherit;
+}
+h4 tt {
+  font-size: inherit;
+}
+h1 {
+  font-size: 22px;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 8px;
+}
+h2 {
+  font-size: 28px;
+  font-weight: normal;
+  text-align: center;
+  border-bottom: 1px solid #e5e6e9;
+  margin-top: 64px;
+  margin-bottom: 24px;
+}
+h3 {
+  font-size: 23px;
+  margin-top: 40px;
+  margin-bottom: 16px;
+}
+h4 {
+  font-size: 18px;
+  padding-top: 16px;
+}
+h5 {
+  font-size: 16px;
+  padding: 0;
+  line-height: 2;
+}
+p {
+  font-size: 16px;
+  line-height: 2;
+  text-align: justify;
+  text-justify: ideographic;
+  margin-bottom: 16px;
+}
+li > p {
+  margin-bottom: 0;
+}
+hr {
+  background: #e5e6e9;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+  margin-top: 32px;
+  margin-bottom: 32px;
+}
+h1 p,
+h2 p,
+h3 p,
+h4 p,
+h5 p,
+h6 p {
+  margin-top: 0;
+}
+li p.first {
+  display: inline-block;
+}
+li {
+  margin: 0;
+}
+ul,
+ol {
+  padding-left: 30px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+dl {
+  padding: 0;
+}
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+dl dt:first-child {
+  padding: 0;
+}
+dl dt > :first-child {
+  margin-top: 0;
+}
+dl dt > :last-child {
+  margin-bottom: 0;
+}
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+dl dd > :first-child {
+  margin-top: 0;
+}
+dl dd > :last-child {
+  margin-bottom: 0;
+}
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777;
+}
+blockquote > :first-child {
+  margin-top: 0;
+}
+blockquote > :last-child {
+  margin-bottom: 0;
+}
+table {
+  padding: 0;
+  border-collapse: collapse;
+}
+table tr {
+  border-top: 1px solid #cccccc;
+  background-color: white;
+  margin: 0;
+  padding: 0;
+}
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+table tr th {
+  font-weight: bold;
+  border: 1px solid #cccccc;
+  margin: 0;
+  padding: 6px 13px;
+}
+table tr td {
+  border: 1px solid #cccccc;
+  margin: 0;
+  padding: 6px 13px;
+}
+table tr th:first-child,
+table tr td:first-child {
+  margin-top: 0;
+}
+table tr th:last-child,
+table tr td:last-child {
+  margin-bottom: 0;
+}
+img {
+  padding: 24px 0;
+  /*max-width: 100%;*/
+  /*position: relative;*/
+  /*right: 50%;*/
+}
+span.frame {
+  display: block;
+  overflow: hidden;
+}
+span.frame > span {
+  border: 1px solid #dddddd;
+  display: block;
+  float: left;
+  overflow: hidden;
+  margin: 13px 0 0;
+  padding: 7px;
+  width: auto;
+}
+span.frame span img {
+  display: block;
+  float: left;
+}
+span.frame span span {
+  clear: both;
+  color: #333333;
+  display: block;
+  padding: 5px 0 0;
+}
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both;
+}
+span.align-center > span {
+  display: block;
+  overflow: hidden;
+  margin: 13px auto 0;
+  text-align: center;
+}
+span.align-center span img {
+  margin: 0 auto;
+  text-align: center;
+}
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both;
+}
+span.align-right > span {
+  display: block;
+  overflow: hidden;
+  margin: 13px 0 0;
+  text-align: right;
+}
+span.align-right span img {
+  margin: 0;
+  text-align: right;
+}
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left;
+}
+span.float-left span {
+  margin: 13px 0 0;
+}
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right;
+}
+span.float-right > span {
+  display: block;
+  overflow: hidden;
+  margin: 13px auto 0;
+  text-align: right;
+}
+code,
+tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+code {
+  font-family: "Courier New", "Courier";
+  font-weight: bold;
+}
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+pre code,
+pre tt {
+  background-color: transparent;
+  border: none;
+}
+sup {
+  font-size: 0.83em;
+  vertical-align: super;
+  line-height: 0;
+}
+* {
+  -webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+  body {
+    position: relative;
+    margin: 0 auto;
+  }
+}
+@media print {
+  table,
+  pre {
+    page-break-inside: avoid;
+  }
+  pre {
+    word-wrap: break-word;
+  }
+}
+
+</style>
+<title>雇主端服务</title>
+
+</head>
+<body>
+<h1>雇主端服务</h1>
+
+<p>2.0 中标题栏可选动作「全部完工」被替换为图标，点击后出现下拉列表，内含「全部完工」「签到命令」「导出至邮箱」等选项。</p>
+
+<p><img src="img/checkin-order.png" alt="image" /></p>
+
+<h2>打卡命令</h2>
+
+<p>帮助雇主远程查岗。点击「打卡命令」弹框要求输入打卡时间。点击「发送」后，该岗位中已被录用兼客将立即收到系统以雇主身份发来的 IM 消息。</p>
+
+<pre><code>打卡命令
+请设置打卡时间，高科技帮您远程查岗。使用【导出至邮箱】功能查看打卡详情。
+____________________
+取消 | 确定
+</code></pre>
+
+<h3>发送条件</h3>
+
+<ul>
+<li>该岗位没过结束时间点。</li>
+</ul>
+
+
+<p>例如
+：岗位工作日期及时间段为 10/1 至 10/3，每日 9:00~18:00，则以 10/3 18:00 为结束时间点。</p>
+
+<ul>
+<li>每天最多 6 次。</li>
+</ul>
+
+
+<p>用完后继续尝试点击「打卡命令」弹框提示：</p>
+
+<pre><code>发送次数过多
+支持您每天最多发 6 条打卡命令。
+确定
+</code></pre>
+
+<h3>接收条件</h3>
+
+<p>报名/抢单该岗位的兼客上岗日期与要求打卡日期重合。雇主只能对需要打卡的人发打卡命令。</p>
+
+<h3>兼客打卡</h3>
+
+<p><img src="img/checkin.png" alt="image" /></p>
+
+<p>点击「立即打卡」，若未命令失效（仅发送当天有效）则弹框：</p>
+
+<pre><code>确认打卡
+位置：红坊海峡创意产业园
+时间：2015 10/1 9:35
+取消 | 确定
+</code></pre>
+
+<p>若已失效或未生效，则弹框：</p>
+
+<pre><code>该提醒已过期失效。
+确定
+</code></pre>
+
+<p>兼客不可重复点击「立即打卡」，确定后按钮变换为「已完成」。该操作对雇主及兼客均不作特殊提醒。定位不准带来的偏差由雇主人工判断。系统规则中打卡时间与薪资计算不挂钩。</p>
+
+<h2>导出至邮箱</h2>
+
+<p><img src="img/excel.png" alt="image" /></p>
+
+<p><a href="https://attachments.tower.im/tower/255aa3215c20447bb852305c4cbf8329?download=true&amp;filename=%E3%80%908090+%E6%97%B6%E5%B0%9A%E5%B9%BF%E5%9C%BA%E5%8F%91%E5%8D%95%E3%80%91%E5%85%BC%E5%AE%A2%E8%AF%A6%E6%83%85.xlsx">下载示例文件</a></p>
+
+<p>把兼客基本信息、身份证号、签到记录、工资记录等导出并发送至指定邮箱。点击「导出至邮箱」后弹框：</p>
+
+<pre><code>请指定邮箱
+√ 基本信息
+× 身份证号（需企业认证） 
+√ 签到记录
+√ 工资记录
+____________________
+取消 | 确定
+</code></pre>
+
+<p>如已认证营业执照，则弹框：</p>
+
+<pre><code>请指定邮箱
+√ 基本信息
+√ 身份证号
+√ 签到记录
+√ 工资记录
+____________________
+取消 | 确定
+</code></pre>
+
+<p>可重复操作，暂不限制发送次数。需记忆雇主历史设置，一名雇主对应一个邮箱，修改后则覆盖历史邮箱设置。打开弹框后，文本框中默认填写上次设置的邮箱。需验证邮箱格式，但不验证邮箱地址是否真实或是否归属于雇主本人。</p>
+
+<hr />
+
+<p>注：雇主信息中不含「邮箱」字段。暂不添加。</p>
+
+<h3>邮件格式</h3>
+
+<p>标题：【${岗位标题}】兼客详情</p>
+
+<p>正文：由 <a href="http://jianke.cc">兼客兼职</a> 发送。（如果这不是您申请发送的邮件，请忽视）</p>
+
+<p>附件：【${岗位标题}】兼客详情.csv</p>
+
+<h2>人才库</h2>
+
+<p>雇主手动点击「完工」或逾期系统处理为完工的兼客将被加入雇主人才库。</p>
+
+<h3>页面入口</h3>
+
+<p>雇主个人中心：</p>
+
+<ul>
+<li>雇主信息</li>
+<li><strong>*人才库</strong></li>
+<li>吐槽冲我来</li>
+</ul>
+
+
+<h3>人才管理</h3>
+
+<p><img src="img/talent-pool.png" alt="image" /></p>
+
+<p>点击「隐藏」后将该兼客折叠到「已隐藏」中，点击「已隐藏」展开其中兼客，点击「显示」再次回到显示列表的底部。默认按添加时间排序列表，后添加兼客在上。此类操作无须弹框确认。</p>
+
+<p>点击列表项进入「兼客名片」，此处兼客名片标题栏中有「电话联系」及「IM 对聊」两个动作。</p>
+
+<h3>简介</h3>
+
+<p>人才库页标题栏含一个动作：「简介」。点击后弹框：</p>
+
+<pre><code>人才库简介
+您录用并确认完工的兼客都会被添加进来。使用【隐藏】功能对兼客做进一步筛选。
+确定
+</code></pre>
+
+<p>当前版本中，人才库主要使用场景为：雇主群发岗位。人才库中所含兼客与雇主形成过至少一次良好的雇佣关系，双方互相信任（相对而言）。</p>
+</body>
+</html>
